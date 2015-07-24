@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "FlexiCommerce": {
+      "applicationId": "Xm4Dp95TR8d2whnN3pTdxzKvWrNnTOmc0fgeTp4L",
+      "masterKey": "ds0aixZyhjnIJL9JsHjsB2rHbjywYY9470PSWzX2"
+    },
+    "_default": {
+      "link": "FlexiCommerce"
+    }
+  }
+}

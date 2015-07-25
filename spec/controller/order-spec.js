@@ -25,9 +25,9 @@ describe('Order controller', function () {
 
     orderController.updateWithDeliverySlot(req, res);
 
-    expect(Parse.Query.prototype.containedIn.calledWith('id', [1, 2, 3])).to.equal(true);
+    expect(Parse.Query.prototype.containedIn.calledWith('objectId', [1, 2, 3])).to.equal(true);
     expect(Parse.Object.saveAll.args[0][0].length).to.equal(2);
-    expect(Parse.Object.saveAll.args[0][0][0].deliverySlotId).to.equal(2);
+    expect(Parse.Object.saveAll.args[0][0][0].get('deliverySlotId')).to.equal(2);
 
     Parse.Object.saveAll.args[0][1].success(updatedOrders);
     expect(res.send.calledWith(updatedOrders))

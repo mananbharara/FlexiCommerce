@@ -12,4 +12,7 @@ app.get('/delivery-slots', deliverySlotController.index);
 app.put('/delivery-slots/:id', deliverySlotController.decreaseAllowedDeliveries);
 app.put('/orders/delivery-slots', orderController.updateWithDeliverySlot);
 
+app.post('/delivery-slots', deliverySlotController.createDeliverySlot);
+app.post('/orders', orderController.createOrder);
+
 app.listen();

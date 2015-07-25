@@ -22,10 +22,9 @@ describe('Delivery slot controller', function () {
       timeDescription: '7:00am - 9:30am'
     });
 
-    expect(deliverySlot.maxDeliveriesAllowed).to.equal(20);
-    expect(deliverySlot.day).to.equal('Sat Jul 25 2015');
-    expect(deliverySlot.timeDescription).to.equal('7:00am - 9:30am');
-    expect(deliverySlot.available).to.equal(true);
+    expect(deliverySlot.get('maxDeliveriesAllowed')).to.equal(20);
+    expect(deliverySlot.get('day')).to.equal('Sat Jul 25 2015');
+    expect(deliverySlot.get('timeDescription')).to.equal('7:00am - 9:30am');
   });
 
   it('should decrease the number of allowed deliveries for the delivery slot', function () {

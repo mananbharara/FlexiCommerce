@@ -1,8 +1,4 @@
-var expect = require('chai').expect;
-var sinon = require('sinon');
-GLOBAL.Parse = require('parse').Parse;
-var ParseMock = require('parse-mock');
-
+require('../spec-helper');
 var deliverySlotController = require('../../cloud/controller/delivery-slot');
 
 describe('Delivery slot controller', function () {
@@ -15,8 +11,11 @@ describe('Delivery slot controller', function () {
 
     deliverySlotController.index(req, res);
 
-
     expect(res.send.calledOnce).to.equal(true);
     expect(res.send.calledWith([])).to.equal(true);
   });
+
+  afterEach(function() {
+    ParseMock.clearStubs();
+  })
 });

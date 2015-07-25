@@ -5,5 +5,5 @@ exports.index = function (req, res) {
 
   query.find().then(function (results) {
     res.send(results);
-  })
+  });
 };

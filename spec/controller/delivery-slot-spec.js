@@ -25,6 +25,7 @@ describe('Delivery slot controller', function () {
     expect(deliverySlot.maxDeliveriesAllowed).to.equal(20);
     expect(deliverySlot.day).to.equal('Sat Jul 25 2015');
     expect(deliverySlot.timeDescription).to.equal('7:00am - 9:30am');
+    expect(deliverySlot.available).to.equal(true);
   });
 
   afterEach(function () {

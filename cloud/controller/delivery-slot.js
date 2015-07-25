@@ -3,6 +3,7 @@ var DeliverySlot = Parse.Object.extend('DeliverySlot', {
     this.maxDeliveriesAllowed = attrs.maxDeliveriesAllowed;
     this.day = attrs.day;
     this.timeDescription = attrs.timeDescription;
+    this.available = true;
   }
 });
 

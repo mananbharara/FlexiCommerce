@@ -58,6 +58,38 @@ describe('Delivery slot controller', function () {
     expect(res.send.calledWith(updatedSlot)).to.equal(true);
   });
 
+  it('should mark slot as unavailable if deliveries allowed becomes 0', function () {
+    var req = {}, res = {};
+    req.params = {id: 1};
+    res.send = sinon.spy();
+
+    var deliverySlot = new Parse.Object('DeliverySlot', {
+      maxDeliveriesAllowed: 1,
+      day: 'Sat Jul 25 2015',
+      timeDescription: '7:00am - 9:30am'
+    });
+
+    var updatedSlot = new Parse.Object('DeliverySlot', {
+      maxDeliveriesAllowed: 20,
+      day: 'Sat Jul 25 2015',
+      timeDescription: '7:00am - 9:30am',
+      available: false
+    });
+
+    ParseMock.stubQueryGet(function () {
+      return deliverySlot;
+    });
+
+    var saveReq = ParseMock.stubObjectSave(function () {
+      return updatedSlot;
+    });
+
+    deliverySlotController.decreaseAllowedDeliveries(req, res);
+
+    expect(saveReq.args[0][0]).to.deep.equal({maxDeliveriesAllowed: 0, available: false});
+    expect(res.send.calledWith(updatedSlot)).to.equal(true);
+  });
+
   afterEach(function () {
     ParseMock.clearStubs();
   })

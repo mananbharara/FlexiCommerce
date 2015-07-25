@@ -1,4 +1,8 @@
-var Order = Parse.Object.extend('Order');
+var Order = Parse.Object.extend('Order', {
+  setDeliverySlot: function (deliverySlotId) {
+    this.deliverySlotId = deliverySlotId;
+  }
+});
 
 exports.updateWithDeliverySlot = function (req, res) {
   var requestBody = req.body;
@@ -6,7 +10,7 @@ exports.updateWithDeliverySlot = function (req, res) {
 
   query.find().then(function (orders) {
     var ordersToUpdate = orders.map(function (order) {
-      order.deliverySlotId = requestBody.deliverySlotId;
+      order.setDeliverySlot(requestBody.deliverySlotId);
       return order;
     });
 

@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var sinon = require('sinon');
+GLOBAL.Parse = require('parse').Parse;
 var ParseMock = require('parse-mock');
 
 var deliverySlotController = require('../../cloud/controller/delivery-slot');

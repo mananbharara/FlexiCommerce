@@ -1,5 +1,3 @@
-var Parse = require('parse').Parse;
-
 var DeliverySlot = Parse.Object.extend('DeliverySlot');
 
 exports.index = function (req, res) {

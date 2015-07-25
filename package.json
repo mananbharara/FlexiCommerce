@@ -1,0 +1,10 @@
+{
+  "name": "FlexiCommerce",
+  "version": "0.0.1",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "chai": "3.2.0"
+  }
+}
